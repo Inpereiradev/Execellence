@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excellence Peliculas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <div class="top-buttons">
+            <a href="https://www.instagram.com/excellencepeliculas/?igsh=c3ZhaDNxdWtyZjhu#" class="btn-instagram" target="_blank">Instagram</a>
+            <a href="https://wa.me/555194014887" class="btn-whatsapp" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        
+
+        <!-- Seção que agrupa carrossel + caixa de texto -->
+        <div class="content">
+            <!-- Carrossel de Imagens -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="{{ url_for('static', filename='img/carrossel1.jpg') }}" alt="Imagem 1">
+                    <img src="{{ url_for('static', filename='img/carrossel2.jpg') }}" alt="Imagem 2">
+                    <img src="{{ url_for('static', filename='img/carrossel3.jpg') }}" alt="Imagem 3">
+                </div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+
+            <!-- Caixa de Texto -->
+            <div class="info-box">
+                <h2>Sobre Nossa Empresa:</h2>
+                <p>Somos especialistas em películas automotivas e arquitetônicas, garantindo qualidade e tecnologia de ponta para nossos clientes.</p>
+                <p>Entre em contato para saber mais!</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const images = document.querySelectorAll('.carousel img');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+
+        let index = 0;
+
+        function showImage() {
+            carousel.style.transform = `translateX(${-index * 100}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            index = (index + 1) % images.length;
+            showImage();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            index = (index - 1 + images.length) % images.length;
+            showImage();
+        });
+
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            showImage();
+        }, 3000);
+    </script>
+
+    <style>
+        .content {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Espaço entre o carrossel e a caixa de texto */
+            margin-left: 10%; /* Move mais para a esquerda */
+        }
+
+        .carousel-container {
+            width: 50%;
+            max-width: 400px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Caixa de Texto */
+        .info-box {
+            background: #cfb889;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-box h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .info-box p {
+            font-size: 1em;
+            color: #333;
+        }
+    </style>
+    <!-- Galeria de Imagens com descrições -->
+<div class="gallery">
+    <h2>Saiba mais sobre nossas peliculas:</h2>
+    <div class="gallery-images">
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/galeria1.jpg') }}" alt="Trabalho 1">
+            <p>Instalação de película fumê em portas externas.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/galeria2.jpg') }}" alt="Trabalho 2">
+            <p>Películas para controle de luz solar e temperatura.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/galeria3.jpg') }}" alt="Trabalho 3">
+            <p>Proteção e privacidade com películas espelhadas.</p>
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/galeria4.jpg') }}" alt="Trabalho 4">
+            <p>Aplicação profissional para vidros comerciais.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>

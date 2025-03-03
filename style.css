@@ -1,0 +1,209 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: white;
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    height: 280px; /* Ajuste para melhor exibição em telas menores */
+    background: url('/static/img/banner.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Botões superiores */
+.top-buttons {
+    position: absolute;
+    top: 260px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Ajuste dos botões para ficarem melhores no mobile */
+.btn-instagram, .btn-whatsapp {
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-instagram {
+    background-color: #E1306C;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+}
+
+.btn-instagram:hover {
+    background-color: #C1275B;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1EBE5D;
+}
+
+/* Container geral */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilização do carrossel + caixa de texto */
+.content {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre o carrossel e a caixa de texto */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Carrossel */
+.carousel-container {
+    width: 90%;
+    max-width: 400px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Caixa de Texto */
+.info-box {
+    background: #cfb889;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.info-box h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.info-box p {
+    font-size: 1em;
+    color: #333;
+}
+
+/* Galeria de Imagens */
+.gallery {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.gallery h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-item {
+    text-align: center;
+    width: 90%; /* Agora adapta melhor em telas pequenas */
+    max-width: 300px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.1);
+}
+
+.gallery-item p {
+    background: #cfb889;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 8px;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .top-buttons {
+        position: static;
+        margin-top: 10px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-instagram, .btn-whatsapp {
+        width: 80%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-container {
+        width: 100%;
+    }
+
+    .info-box {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .gallery-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-item {
+        width: 90%;
+    }
+}
